@@ -1,23 +1,27 @@
-import logo from './logo.svg';
 import './App.css';
+import React, { useState, useEffect } from 'react'
+
+
 
 function App() {
+  const [emotion, setEmotion] = useState('frustrated')
+
+  useEffect(()=>{
+    console.log("it is" + emotion)
+  })
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="App" style = {{textAlign:'left'}}>
+       <h1> current emotion is {emotion}</h1>
+      <button onClick = {()=>{
+        setEmotion('happy')
+      }}>
+        cheer up
+      </button>
+      <button onClick = {()=>{
+        setEmotion('frustrated')
+      }}>
+        frustrate
+      </button>
     </div>
   );
 }
